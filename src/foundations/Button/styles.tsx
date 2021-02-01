@@ -10,4 +10,5 @@ export const StyledButton = styled.button`
   padding: 10px;
   width: 100%;
   max-width: 100px;
+  height: fit-content;
 `;

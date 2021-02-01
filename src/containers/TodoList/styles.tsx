@@ -10,17 +10,22 @@ export const StyledTodoList = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  
+  width: 50%;
 `;
 
 export const StyledInputsContainer = styled.div`
   display: flex;
   flex-flow: row;
+  align-items: center;
+  width: 100%;
 `;
 
 export const Row = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  width: 300px;
   margin-top: 10px;
 `;
