@@ -2,15 +2,15 @@
 simple todo list.
 ![](./preview.png)
 
-###`react`
+### `react`
 
-###`typescript`
+### `typescript`
 
-###`recoil`
+### `recoil`
 
-###`storybook`
+### `storybook`
 
-###`hygen`
+### `hygen`
 
 ## Available Scripts
 
