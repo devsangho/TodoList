@@ -3,9 +3,13 @@ simple todo list.
 ![](./preview.png)
 
 ###`react`
+
 ###`typescript`
+
 ###`recoil`
+
 ###`storybook`
+
 ###`hygen`
 
 ## Available Scripts
