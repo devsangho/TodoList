@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import * as S from './styles';
 import TextInput from '../../foundations/TextInput';
 import Button from '../../foundations/Button';
+import { todoListState } from '../../recoil/atoms';
 
 function TodoListContainer() {
   const [inputs, setInputs] = useState({
@@ -13,17 +15,17 @@ function TodoListContainer() {
       title: e.target.value,
     });
   }
-  const [tasks, setTasks] = useState([{
-    id: 0,
-    title: '추가해주세요',
-    isCompleted: false,
-  }]);
+  const tasks = useRecoilValue(todoListState);
+  const setTasks = useSetRecoilState(todoListState);
   function addTask(newTitle: string): void {
-    setTasks((prevState) => prevState.concat({
-      id: prevState.length,
-      title: newTitle,
-      isCompleted: false,
-    }));
+    setTasks((prevState: any[]) => [
+      ...prevState,
+      {
+        id: prevState.length,
+        title: newTitle,
+        isCompleted: false,
+      },
+    ]);
   }
   function updateCompleteStateTask(index: number): void {
     setTasks(tasks
@@ -38,14 +40,12 @@ function TodoListContainer() {
       </S.StyledInputsContainer>
       <div>
         {
-              tasks.map((task, index) => {
-                return (
-                  <S.Row>
-                    {task.isCompleted ? <p><del>{task.title}</del></p> : <p>{task.title}</p>}
-                    <Button text="완료" onClick={() => updateCompleteStateTask(index)} />
-                  </S.Row>
-                );
-              })
+              tasks.map((task, index) => (
+                <S.Row>
+                  {task.isCompleted ? <p><del>{task.title}</del></p> : <p>{task.title}</p>}
+                  <Button text="완료" onClick={() => updateCompleteStateTask(index)} />
+                </S.Row>
+              ))
           }
       </div>
     </S.StyledTodoList>
